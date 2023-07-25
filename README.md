@@ -1,2 +1,5 @@
-# WTF-Assembly
-Minimal tutorials for Assembly in Solidity. 智能合约Solidity中的Assembly极简教程
+# WTF-Opcodes
+Minimal tutorials for Opcodes in Solidity/Ethereum. 
+
+Solidity/以太坊的Opcodes（操作码）极简教程。
+
