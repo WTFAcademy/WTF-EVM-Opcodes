@@ -4,7 +4,7 @@
 
 ## 入门
 
-**第1讲：Hello Opcodes**：[代码](https://github.com/AmazingAng/WTFSolidity/blob/main/01_HelloOpcodes) | [文章](https://github.com/AmazingAng/WTFSolidity/blob/main/01_HelloOpcodes/readme.md)
+**第1讲：Hello Opcodes**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/01_HelloOpcodes) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/01_HelloOpcodes/readme.md)
 
 ## Reference
 
