@@ -6,6 +6,8 @@
 
 **第1讲：Hello Opcodes**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/01_HelloOpcodes) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/01_HelloOpcodes/readme.md)
 
+**第2讲：Opcodes分类**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/02_Categories) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/02_Categories/readme.md)
+
 ## Reference
 
 1. [Ethereum EVM illustrated by Takenobu T.](https://github.com/takenobu-hs/ethereum-evm-illustrated)
