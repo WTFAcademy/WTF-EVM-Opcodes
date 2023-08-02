@@ -10,6 +10,8 @@
 
 **第3讲：堆栈指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/03_StackOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/03_StackOp/readme.md)
 
+**第4讲：算数指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/04_ArithmeticOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/04_ArithmeticOp/readme.md)
+
 ## Reference
 
 1. [Ethereum EVM illustrated by Takenobu T.](https://github.com/takenobu-hs/ethereum-evm-illustrated)
