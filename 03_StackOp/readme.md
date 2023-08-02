@@ -171,4 +171,4 @@ evm.stack
 
 ## 总结
 
-这一讲，我们主要介绍了EVM中的程序计数器和堆栈指令，特别是`PUSH`和`POP`指令。并且我们使用Python实现了一个简化版的EVM，能够处理`PUSH`和`POP`指令。在后续的教程中，我们将继续探索更多的opcodes，从而进一步完善我们的EVM实现。
+这一讲，我们主要介绍了EVM中的程序计数器和堆栈指令，特别是`PUSH`和`POP`指令。并且参考[evm-from-scratch](https://github.com/w1nt3r-eth/evm-from-scratch)，我们使用Python实现了一个简化版的EVM，能够处理`PUSH`和`POP`指令。在后续的教程中，我们将继续探索更多的opcodes，从而进一步完善我们的EVM实现。
