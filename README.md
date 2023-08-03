@@ -12,6 +12,8 @@
 
 **第4讲：算数指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/04_ArithmeticOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/04_ArithmeticOp/readme.md)
 
+**第4讲：比较指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/05_ComparisonOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/05_ComparisonOp/readme.md)
+
 ## Reference
 
 1. [Ethereum EVM illustrated by Takenobu T.](https://github.com/takenobu-hs/ethereum-evm-illustrated)
