@@ -177,3 +177,7 @@ print(evm.stack)
         b = self.stack.pop()
         self.stack.append(int(b > a)) # 极简evm stack中的值已经是以有符号整数存储了，所以和gt一样实现
     ```
+
+## 总结
+
+这一讲，我们介绍了EVM中的6个比较指令，并在极简版EVM中添加了对他们的支持。课后习题: 写出`0x6003600414`对应的指令形式，并给出运行后的堆栈状态。
