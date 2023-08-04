@@ -12,7 +12,9 @@
 
 **第4讲：算数指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/04_ArithmeticOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/04_ArithmeticOp/readme.md)
 
-**第4讲：比较指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/05_ComparisonOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/05_ComparisonOp/readme.md)
+**第5讲：比较指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/05_ComparisonOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/05_ComparisonOp/readme.md)
+
+**第6讲：位级指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/06_BitwiseOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/06_BitwiseOp/readme.md)
 
 ## Reference
 
