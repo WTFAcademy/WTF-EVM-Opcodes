@@ -16,6 +16,8 @@
 
 **第6讲：位级指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/06_BitwiseOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/06_BitwiseOp/readme.md)
 
+**第7讲：内存指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/07_MemoryOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/07_MemoryOp/readme.md)
+
 ## Reference
 
 1. [Ethereum EVM illustrated by Takenobu T.](https://github.com/takenobu-hs/ethereum-evm-illustrated)
