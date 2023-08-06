@@ -18,6 +18,8 @@
 
 **第7讲：内存指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/07_MemoryOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/07_MemoryOp/readme.md)
 
+**第8讲：存储指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/08_StorageOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/08_StorageOp/readme.md)
+
 ## Reference
 
 1. [Ethereum EVM illustrated by Takenobu T.](https://github.com/takenobu-hs/ethereum-evm-illustrated)
