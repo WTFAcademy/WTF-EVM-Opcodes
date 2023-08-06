@@ -1,4 +1,4 @@
-# WTF Opcodes极简入门: 6. 位级指令
+# WTF Opcodes极简入门: 7. 内存指令
 
 我最近在重新学以太坊opcodes，也写一个“WTF Opcodes极简入门”，供小白们使用。
 
