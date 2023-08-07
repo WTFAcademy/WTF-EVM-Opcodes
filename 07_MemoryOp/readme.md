@@ -137,6 +137,15 @@ print(evm.stack)
 # output: [2]
 ```
 
+## MSIZE （内存大小）
+
+`MSIZE`指令将当前的内存大小（以字节为单位）压入堆栈。操作码是`0x59`，gas消耗为2。
+
+```python
+def msize(self):
+    self.stack.append(len(self.memory))
+```
+
 ## 总结
 
 这一讲，我们介绍了EVM中的内存操作指令，并在极简版EVM中添加了对它们的支持。这些操作允许我们在EVM的内存中存储和读取值，为更复杂的合约逻辑提供基础。
