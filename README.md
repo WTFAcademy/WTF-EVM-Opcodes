@@ -20,6 +20,8 @@
 
 **第8讲：存储指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/08_StorageOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/08_StorageOp/readme.md)
 
+**第9讲：控制流指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/09_FlowOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/09_FlowOp/readme.md)
+
 ## Reference
 
 1. [Ethereum EVM illustrated by Takenobu T.](https://github.com/takenobu-hs/ethereum-evm-illustrated)
