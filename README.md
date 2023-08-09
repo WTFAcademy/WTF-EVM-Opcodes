@@ -22,6 +22,8 @@
 
 **第9讲：控制流指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/09_FlowOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/09_FlowOp/readme.md)
 
+**第10讲：区块信息指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/10_BlockOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/10_BlockOp/readme.md)
+
 ## Reference
 
 1. [Ethereum EVM illustrated by Takenobu T.](https://github.com/takenobu-hs/ethereum-evm-illustrated)
