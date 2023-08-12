@@ -90,7 +90,6 @@ class EVM:
                 self.push(size)
             elif op == PUSH0:
                 self.stack.append(0)
-                self.pc += size
 ```
 
 字节码`0x60016001`（PUSH1 1 PUSH1 1）会将两个1压入堆栈，下面我们执行一下：

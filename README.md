@@ -28,6 +28,8 @@
 
 **第11讲：堆栈指令2**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/11_StackOp2) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/11_StackOp2/readme.md)
 
+**第12讲：SHA3指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/12_SHA3) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/12_SHA3/readme.md)
+
 ## Reference
 
 1. [Ethereum EVM illustrated by Takenobu T.](https://github.com/takenobu-hs/ethereum-evm-illustrated)
