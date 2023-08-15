@@ -10,7 +10,7 @@
 
 -----
 
-在这一讲，我们将介绍EVM中用于内存（Memory）操作的3个指令，包括`MSTORE`，`MSTORE8`，和`MLOAD`。我们将在用Python写的极简版EVM中添加对这些操作的支持。
+在这一讲，我们将介绍EVM中用于内存（Memory）操作的4个指令，包括`MSTORE`，`MSTORE8`，`MLOAD`，和`MSIZE`。我们将在用Python写的极简版EVM中添加对这些操作的支持。
 
 ## EVM中的内存
 
