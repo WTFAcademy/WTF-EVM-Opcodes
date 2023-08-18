@@ -36,6 +36,8 @@
 
 **第14讲：交易指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/14_TxOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/14_TxOp/readme.md)
 
+**第15讲：Log指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/15_LogOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/15_LogOp/readme.md)
+
 ## Reference
 
 1. [Ethereum EVM illustrated by Takenobu T.](https://github.com/takenobu-hs/ethereum-evm-illustrated)
@@ -45,3 +47,5 @@
 3. [evm-opcodes](https://github.com/wolflo/evm-opcodes)
 
 4. [evm-from-scratch](https://github.com/w1nt3r-eth/evm-from-scratch)
+
+5. [evm.codes](https://evm.codes)
