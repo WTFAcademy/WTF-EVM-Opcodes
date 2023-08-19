@@ -38,6 +38,8 @@
 
 **第15讲：Log指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/15_LogOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/15_LogOp/readme.md)
 
+**第16讲：Return指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/16_ReturnOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/16_ReturnOp/readme.md)
+
 ## Reference
 
 1. [Ethereum EVM illustrated by Takenobu T.](https://github.com/takenobu-hs/ethereum-evm-illustrated)
