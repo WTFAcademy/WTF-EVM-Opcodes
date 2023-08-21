@@ -40,6 +40,8 @@
 
 **第16讲：Return指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/16_ReturnOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/16_ReturnOp/readme.md)
 
+**第17讲：Revert指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/17_RevertOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/17_RevertOp/readme.md)
+
 ## Reference
 
 1. [Ethereum EVM illustrated by Takenobu T.](https://github.com/takenobu-hs/ethereum-evm-illustrated)
