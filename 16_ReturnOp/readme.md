@@ -128,4 +128,4 @@ def returndatacopy(self):
 
 ## 总结
 
-这一讲，我们学习了EVM中与返回数据相关的3个指令：`RETURN`、`RETURNDATASIZE`，和`RETURNDATACOPY`，并通过代码示例为极简EVM添加了对这些指令的支持。目前，我们已经学习了144个操作码中的135个（93.75%）！
+这一讲，我们学习了EVM中与返回数据相关的3个指令：`RETURN`、`RETURNDATASIZE`，和`RETURNDATACOPY`，并通过代码示例为极简EVM添加了对这些指令的支持。目前，我们已经学习了144个操作码中的134个（93%）！
