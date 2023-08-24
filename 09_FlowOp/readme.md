@@ -50,6 +50,23 @@ evm.run()
 
 `JUMPDEST`指令标记一个有效的跳转目标位置，不然无法使用`JUMP`和`JUMPI`进行跳转。它的操作码是`0x5b`，gas消耗为1。
 
+但是`0x5b`有时会作为`PUSH`的参数（详情可看[黄皮书](https://ethereum.github.io/yellowpaper/paper.pdf)中的9.4.3. Jump Destination Validity），所以需要在运行代码前，筛选字节码中有效的`JUMPDEST`指令，使用`ValidJumpDest` 来存储有效的`JUMPDEST`指令所在位置。
+
+```python
+ValidJumpDest = {}
+
+def findValidJumpDestinations(self):
+    pc = 0
+
+    while pc < len(self.code):
+        op = self.code[pc]
+        if op == JUMPDEST:
+            ValidJumpDest[pc] = True
+        elif op >= PUSH1 and op <= PUSH32:
+            pc += op - PUSH1 + 1
+        pc += 1
+```
+
 ```python
 def jumpdest(self):
     pass
@@ -64,9 +81,9 @@ def jump(self):
     if len(self.stack) < 1:
         raise Exception('Stack underflow')
     destination = self.stack.pop()
-    if self.code[destination] != JUMPDEST:
+    if destination not in ValidJumpDest:
         raise Exception('Invalid jump destination')
-    self.pc = destination
+    else:  self.pc = destination
 ```
 
 我们在`run()`函数中添加对`JUMP`和`JUMPDEST`指令的处理：
@@ -100,9 +117,9 @@ def jumpi(self):
     destination = self.stack.pop()
     condition = self.stack.pop()
     if condition != 0:
-        if self.code[destination] != JUMPDEST:
+        if destination not in ValidJumpDest:
             raise Exception('Invalid jump destination')
-        self.pc = destination
+        else:  self.pc = destination
 ```
 
 我们在`run()`函数中添加对`JUMPI`指令的处理：
