@@ -53,15 +53,13 @@ evm.run()
 但是`0x5b`有时会作为`PUSH`的参数（详情可看[黄皮书](https://ethereum.github.io/yellowpaper/paper.pdf)中的9.4.3. Jump Destination Validity），所以需要在运行代码前，筛选字节码中有效的`JUMPDEST`指令，使用`ValidJumpDest` 来存储有效的`JUMPDEST`指令所在位置。
 
 ```python
-ValidJumpDest = {}
-
 def findValidJumpDestinations(self):
     pc = 0
 
     while pc < len(self.code):
         op = self.code[pc]
         if op == JUMPDEST:
-            ValidJumpDest[pc] = True
+            self.validJumpDest[pc] = True
         elif op >= PUSH1 and op <= PUSH32:
             pc += op - PUSH1 + 1
         pc += 1
@@ -81,7 +79,7 @@ def jump(self):
     if len(self.stack) < 1:
         raise Exception('Stack underflow')
     destination = self.stack.pop()
-    if destination not in ValidJumpDest:
+    if destination not in self.validJumpDest:
         raise Exception('Invalid jump destination')
     else:  self.pc = destination
 ```
@@ -117,7 +115,7 @@ def jumpi(self):
     destination = self.stack.pop()
     condition = self.stack.pop()
     if condition != 0:
-        if destination not in ValidJumpDest:
+        if destination not in self.validJumpDest:
             raise Exception('Invalid jump destination')
         else:  self.pc = destination
 ```
