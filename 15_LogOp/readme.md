@@ -111,7 +111,7 @@ print(evm.logs)
 
 ### 测试`LOG1`
 
-我们运行一个包含`LOG1`指令的字节码：`60aa60005260116001601fa1`（PUSH1 aa PUSH1 0 MSTORE PUSH 11 PUSH1 1 PUSH1 1f LOG0）。这个字节码将`aa`存在内存，然后将`11`压入堆栈，最后使用`LOG1`指令将`aa`输出到日志的数据部分，将`11`输出到日志的主题部分。
+我们运行一个包含`LOG1`指令的字节码：`60aa60005260116001601fa1`（PUSH1 aa PUSH1 0 MSTORE PUSH 11 PUSH1 1 PUSH1 1f LOG1）。这个字节码将`aa`存在内存，然后将`11`压入堆栈，最后使用`LOG1`指令将`aa`输出到日志的数据部分，将`11`输出到日志的主题部分。
 
 ```python
 # LOG1
