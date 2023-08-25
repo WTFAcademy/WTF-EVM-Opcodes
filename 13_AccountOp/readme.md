@@ -85,7 +85,7 @@ def extcodesize(self):
     self.stack.append(len(account_db.get(addr_str, {}).get('code', b'')))
 ```
 
-我们可以尝试运行一个包含`EXTCODESIZE`指令的字节码：`739bbfed6889322e016e0a02ee459d306fc19545d83B`（PUSH20 9bbfed6889322e016e0a02ee459d306fc19545d8 BALANCE）。这个字节码使用`PUSH20`将一个地址推入堆栈，然后使用`EXTCODESIZE`指令查询该地址的代码长度。
+我们可以尝试运行一个包含`EXTCODESIZE`指令的字节码：`739bbfed6889322e016e0a02ee459d306fc19545d83B`（PUSH20 9bbfed6889322e016e0a02ee459d306fc19545d8 EXTCODESIZE）。这个字节码使用`PUSH20`将一个地址推入堆栈，然后使用`EXTCODESIZE`指令查询该地址的代码长度。
 
 ```python
 # EXTCODESIZE
@@ -118,7 +118,7 @@ def extcodecopy(self):
     self.memory[mem_offset:mem_offset+length] = code
 ```
 
-我们可以尝试运行一个包含`EXTCODESIZE`指令的字节码：`60045F5F739bbfed6889322e016e0a02ee459d306fc19545d83B`（PUSH1 4 PUSH20 PUSH0 PUSH0 9bbfed6889322e016e0a02ee459d306fc19545d8 BALANCE）。这个字节码将4（`length`）, 0（`code_offset`）, 0（`mem_offset`）, 地址（`addr`）分别推入堆栈，然后，然后使用`EXTCODECOPY`指令将代码复制到内存中。
+我们可以尝试运行一个包含`EXTCODECOPY`指令的字节码：`60045F5F739bbfed6889322e016e0a02ee459d306fc19545d83C`（PUSH1 4  PUSH0 PUSH0 PUSH20 9bbfed6889322e016e0a02ee459d306fc19545d8 EXTCODECOPY）。这个字节码将4（`length`）, 0（`code_offset`）, 0（`mem_offset`）, 地址（`addr`）分别推入堆栈，然后，然后使用`EXTCODECOPY`指令将代码复制到内存中。
 
 ```python
 # EXTCODECOPY
