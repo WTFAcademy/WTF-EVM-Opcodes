@@ -58,12 +58,12 @@ def invalid(self):
 
 ## 测试
 
-1. **REVERT**: 我们运行一个包含`REVERT`指令的字节码：`60aa6000526001601ffe`（PUSH1 aa PUSH1 0 MSTORE PUSH1 1 PUSH1 1f REVERT）。这个字节码将`aa`存在内存中，然后使用`REVERT`指令将交易回滚，并将`aa`复制到`returnData`中。
+1. **REVERT**: 我们运行一个包含`REVERT`指令的字节码：`60aa6000526001601ffd`（PUSH1 aa PUSH1 0 MSTORE PUSH1 1 PUSH1 1f REVERT）。这个字节码将`aa`存在内存中，然后使用`REVERT`指令将交易回滚，并将`aa`复制到`returnData`中。
 
 
     ```python
     # REVERT
-    code = b"\x60\xa2\x60\x00\x52\x60\x01\x60\x1f\xf3"
+    code = b"\x60\xa2\x60\x00\x52\x60\x01\x60\x1f\xfd"
     evm = EVM(code)
     evm.run()
     print(evm.returnData.hex())
