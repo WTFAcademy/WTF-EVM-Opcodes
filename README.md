@@ -46,7 +46,7 @@
 
 **第19讲：Delegatecall指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/19_DelegatecallOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/19_DelegatecallOp/readme.md)
 
-**第19讲：Staticcall指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/20_StaticcallOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/20_StaticcallOp/readme.md)
+**第20讲：Staticcall指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/20_StaticcallOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/20_StaticcallOp/readme.md)
 
 ## WTF EVM Opcodes贡献者
 <div align="center">
