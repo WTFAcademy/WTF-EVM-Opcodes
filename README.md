@@ -46,6 +46,19 @@
 
 **第19讲：Delegatecall指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/19_DelegatecallOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/19_DelegatecallOp/readme.md)
 
+**第19讲：Staticcall指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/20_StaticcallOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/20_StaticcallOp/readme.md)
+
+## WTF EVM Opcodes贡献者
+<div align="center">
+  <h4 align="center">
+    贡献者是WTF学院的基石
+  </h4>
+  <a href="https://github.com/WTFAcademy/WTF-EVM-Opcodes/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=WTFAcademy/WTF-EVM-Opcodes" />
+  </a>
+</div>
+
+
 ## Reference
 
 1. [Ethereum EVM illustrated by Takenobu T.](https://github.com/takenobu-hs/ethereum-evm-illustrated)

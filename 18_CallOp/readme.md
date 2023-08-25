@@ -10,13 +10,15 @@
 
 -----
 
-这一讲，我们介绍EVM中的`Call`指令。`CALL`指令可以被视为以太坊的核心，它允许合约之间进行交互，让区块链上的合约不再孤立。如果你不了解`CALL`指令，请参考[WTF Solidity教程第22讲](https://github.com/AmazingAng/WTF-Solidity/blob/main/22_Call/readme.md)。
+这一讲，我们介绍EVM中的`CALL`指令。`CALL`指令可以被视为以太坊的核心，它允许合约之间进行交互，让区块链上的合约不再孤立。如果你不了解`CALL`指令，请参考[WTF Solidity教程第22讲](https://github.com/AmazingAng/WTF-Solidity/blob/main/22_Call/readme.md)。
 
 ![](./img/18-1.png)
 
 ## CALL 指令
 
-`CALL`指令使一个合约可以调用另一个合约，发送ETH，并根据返回的数据进行相应的操作，这为构建复杂的DApp提供了基础。它从堆栈中弹出7个参数，依次为：
+`CALL`指令会创建一个子环境来执行其他合约的部分代码，发送`ETH`，并返回数据。返回数据可以使用`RETURNDATASIZE`和`RETURNDATACOPY`获取。若执行成功，会将`1`压入堆栈；否则，则压入`0`。如果目标合约没有代码，仍将`1`压入堆栈（视为成功）。如果账户`ETH`余额小于要发送的`ETH`数量，调用失败，但当前交易不会回滚。
+
+它从堆栈中弹出7个参数，依次为：
 
 - `gas`：为这次调用分配的gas量。
 - `to`：被调用合约的地址。
@@ -31,55 +33,64 @@
 下面，我们在极简EVM中支持`CALL`指令。由于`CALL`指令比较复杂，我们进行了一些简化，主要包括以下几个步骤：读取calldata，更新ETH余额，根据目标地址代码创建evm子环境，执行evm子环境代码，读取返回值。
 
 ```python
-    def call(self):
-        if len(self.stack) < 7:
-            raise Exception('Stack underflow')
-            
-        gas = self.stack.pop()
-        to_addr = self.stack.pop()
-        value = self.stack.pop()
-        mem_in_start = self.stack.pop()
-        mem_in_size = self.stack.pop()
-        mem_out_start = self.stack.pop()
-        mem_out_size = self.stack.pop()
+def call(self):
+    if len(self.stack) < 7:
+        raise Exception('Stack underflow')
         
-        # 拓展内存
-        if len(self.memory) < mem_in_start + mem_in_size:
-            self.memory.extend([0] * (mem_in_start + mem_in_size - len(self.memory)))
-
-        # 从内存中获取输入数据
-        data = self.memory[mem_in_start: mem_in_start + mem_in_size]
+    gas = self.stack.pop()
+    to_addr = self.stack.pop()
+    value = self.stack.pop()
+    mem_in_start = self.stack.pop()
+    mem_in_size = self.stack.pop()
+    mem_out_start = self.stack.pop()
+    mem_out_size = self.stack.pop()
     
-        account_source = account_db[self.txn.caller]
-        account_target = account_db[hex(to_addr)]
-        
-        # 检查caller的余额
-        if account_source['balance'] < value:
-            self.success = False
-            print("Insufficient balance for the transaction!")
-            self.stack.append(0) 
-            return
-        
-        # 更新余额
-        account_source['balance'] -= value
-        account_target['balance'] += value
-        
-        # 创建evm子环境
-        evm_call = EVM(account_target['code'])
-        # 运行代码
-        evm_call.run()
-        
-        # 拓展内存
-        if len(self.memory) < mem_out_start + mem_out_size:
-            self.memory.extend([0] * (mem_out_start + mem_out_size - len(self.memory)))
-        
-        self.memory[mem_out_start: mem_out_start + mem_out_size] = evm_call.returnData
-        
-        if evm_call.success:
-            self.stack.append(1)  
-        else:
-            self.stack.append(0)  
-            print("Called contract execution failed!")
+    # 拓展内存
+    if len(self.memory) < mem_in_start + mem_in_size:
+        self.memory.extend([0] * (mem_in_start + mem_in_size - len(self.memory)))
+
+    # 从内存中获取输入数据
+    data = self.memory[mem_in_start: mem_in_start + mem_in_size]
+
+    account_source = account_db[self.txn.caller]
+    account_target = account_db[hex(to_addr)]
+    
+    # 检查caller的余额
+    if account_source['balance'] < value:
+        self.success = False
+        print("Insufficient balance for the transaction!")
+        self.stack.append(0) 
+        return
+    
+    # 更新余额
+    account_source['balance'] -= value
+    account_target['balance'] += value
+    
+    # 使用txn构建上下文
+    ctx = Transaction(to=hex(to_addr), 
+                        data=data,
+                        value=value,
+                        caller=self.txn.thisAddr, 
+                        origin=self.txn.origin, 
+                        thisAddr=hex(to_addr), 
+                        gasPrice=self.txn.gasPrice, 
+                        gasLimit=self.txn.gasLimit, 
+                        )
+    
+    # 创建evm子环境
+    evm_call = EVM(account_target['code'], ctx)
+    evm_call.run()
+    
+    # 拓展内存
+    if len(self.memory) < mem_out_start + mem_out_size:
+        self.memory.extend([0] * (mem_out_start + mem_out_size - len(self.memory)))
+    
+    self.memory[mem_out_start: mem_out_start + mem_out_size] = evm_call.returnData
+    
+    if evm_call.success:
+        self.stack.append(1)  
+    else:
+        self.stack.append(0)  
 ```
 
 ## 测试
