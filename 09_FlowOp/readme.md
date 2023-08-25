@@ -1,6 +1,6 @@
 # WTF Opcodes极简入门: 9. 控制流指令
 
-我最近在重新学以太坊opcodes，也写一个“WTF Opcodes极简入门”，供小白们使用。
+我最近在重新学以太坊opcodes，也写一个“WTF EVM Opcodes极简入门”，供小白们使用。
 
 推特：[@0xAA_Science](https://twitter.com/0xAA_Science)
 
