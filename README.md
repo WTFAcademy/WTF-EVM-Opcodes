@@ -1,6 +1,6 @@
-# WTF-Opcodes
+# WTF EVM Opcodes
 
-我最近在重新学以太坊的opcodes，巩固一下细节，也写一个“WTF Opcodes极简入门”，供小白们使用（编程大佬可以另找教程），每周更新1-3讲。
+我最近在重新学以太坊的opcodes，巩固一下细节，也写一个“WTF EVM Opcodes极简入门”，供小白们使用（编程大佬可以另找教程），每周更新1-3讲。
 
 在学习这个教程之前，你需要先学习[WTF Solidity教程](https://github.com/AmazingAng/WTF-Solidity)。
 
@@ -47,6 +47,9 @@
 **第19讲：Delegatecall指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/19_DelegatecallOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/19_DelegatecallOp/readme.md)
 
 **第20讲：Staticcall指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/20_StaticcallOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/20_StaticcallOp/readme.md)
+
+**第21讲：Create指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/21_Create) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/21_Create/readme.md)
+
 
 ## WTF EVM Opcodes贡献者
 <div align="center">
