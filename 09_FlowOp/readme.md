@@ -127,7 +127,7 @@ elif op == JUMPI:
     self.jumpi()
 ```
 
-现在，我们可以尝试运行一个包含`JUMPI`和`JUMPDEST`指令的字节码：`0x6001600557005B`（PUSH1 01 PUSH1 6 JUMPI STOP JUMPDEST）。这个字节码将`1`和`6`推入堆栈，然后进行`JUMPI`，由于条件不为`0`，执行跳转到`pc = 6`的位置，该位置正好是`JUMPDEST`指令，跳转成功，程序没有被`STOP`指令中断。
+现在，我们可以尝试运行一个包含`JUMPI`和`JUMPDEST`指令的字节码：`0x6001600657005B`（PUSH1 01 PUSH1 6 JUMPI STOP JUMPDEST）。这个字节码将`1`和`6`推入堆栈，然后进行`JUMPI`，由于条件不为`0`，执行跳转到`pc = 6`的位置，该位置正好是`JUMPDEST`指令，跳转成功，程序没有被`STOP`指令中断。
 
 ```python
 # JUMPI

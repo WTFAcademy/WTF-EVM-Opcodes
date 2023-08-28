@@ -123,7 +123,7 @@ def __init__(self, code):
         self.stack.append(self.current_block["selfbalance"])
     ```
 
-9. `BASEFEE`: 将当前区块的[基础费](https://ethereum.org/zh/developers/docs/gas/#base-fee)（base fee）压入堆栈。
+9. `BASEFEE`: 将当前区块的[基础费](https://ethereum.org/zh/developers/docs/gas/#base-fee)（base fee）压入堆栈，它的操作码`0x48`，gas消耗为2。
 
     ```python
     def basefee(self):
