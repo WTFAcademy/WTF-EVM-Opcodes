@@ -129,7 +129,7 @@ def create(self):
     ```python
     # CREATE (with 4x FF)
     code = b"\x6c\x63\xff\xff\xff\xff\x60\x00\x52\x60\x04\x60\x1c\xf3\x60\x00\x52\x60\x0d\x60\x13\x60\x00\xf0"
-    # PUSH13 0x63ffffffff6000526004601cf3 PUSH1 0x00 MSTORE PUSH1 0x0d PUSH1 0x00 PUSH1 0x00 CREATE
+    # PUSH13 0x63ffffffff6000526004601cf3 PUSH1 0x00 MSTORE PUSH1 0x0d PUSH1 0x19 PUSH1 0x00 CREATE
     evm = EVM(code, txn)
     evm.run()
     print(hex(evm.stack[-1]))
