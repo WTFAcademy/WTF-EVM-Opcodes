@@ -14,7 +14,7 @@
 
 ## CREATE vs CREATE2
 
-传统的`CREATE`指令通过调用者的地址和nonce来确定新合约的地址，但`CREATE2`则提供了一种新的计算方法，使我们可以在合约部署之前预知它的地址。
+传统的`CREATE`指令通过调用者的地址和nonce来确定新合约的地址，而`CREATE2`则提供了一种新的计算方法，使我们可以在合约部署之前预知它的地址。
 
 与`CREATE`不同，`CREATE2`使用调用者地址、盐（一个自定义的256位的值）以及`initcode`的哈希来确定新合约的地址，计算方法如下：
 
@@ -22,7 +22,7 @@
 address = keccak256( 0xff + sender_address + salt + keccak256(init_code))[12:]
 ```
 
-这样的好处：只要你知道`initcode`，盐值和发送者的地址，就可以预先知道新合约的地址，而不需要现在部署它。而`CREATE`计算的地址取决于部署账户的`nonce`，也就是说，在`nonce`不确定的情况下（合约还未部署，nonce可能会增加），没法确定新合约的地址。
+这样的好处是，只要你知道`initcode`，盐值和发送者的地址，就可以预先知道新合约的地址，而不需要现在部署它。而`CREATE`计算的地址取决于部署账户的`nonce`，也就是说，在`nonce`不确定的情况下（合约还未部署，nonce可能会增加），没法确定新合约的地址。
 
 对`CREATE2`的更多介绍可以参考[WTF Solidity教程第25讲](https://github.com/AmazingAng/WTF-Solidity/blob/main/25_Create2/readme.md)。
 
