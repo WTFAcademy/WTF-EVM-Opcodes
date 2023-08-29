@@ -52,6 +52,7 @@
 
 **第22讲：Create2指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/22_Create2) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/22_Create2/readme.md)
 
+**第23讲：Selfdestruct指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/23_SelfdestructOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/23_SelfdestructOp/readme.md)
 
 ## WTF EVM Opcodes贡献者
 <div align="center">
