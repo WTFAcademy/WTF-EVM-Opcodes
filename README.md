@@ -54,6 +54,8 @@
 
 **第23讲：Selfdestruct指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/23_SelfdestructOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/23_SelfdestructOp/readme.md)
 
+**第24讲：Gas指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/24_GasOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/24_GasOp/readme.md)
+
 ## WTF EVM Opcodes贡献者
 <div align="center">
   <h4 align="center">
