@@ -1,8 +1,16 @@
 # WTF EVM Opcodes
 
+这个教程逐个介绍了EVM的144个Opcodes，让你深入理解EVM。
+
+进度: ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 144/144 (100%)！      
+
+
 我最近在重新学以太坊的opcodes，巩固一下细节，也写一个“WTF EVM Opcodes极简入门”，供小白们使用（编程大佬可以另找教程），每周更新1-3讲。
 
 在学习这个教程之前，你需要先学习[WTF Solidity教程](https://github.com/AmazingAng/WTF-Solidity)。
+
+
+
 
 ## 入门 101
 
