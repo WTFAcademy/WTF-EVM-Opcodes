@@ -106,7 +106,7 @@ print(evm.stack)
 
 ## SUB (减法)
 
-`SUB`指令从堆栈顶部弹出两个元素，然后计算第二个元素减去第一个元素，最后将结果推入堆栈。这个指令的操作码是`0x03`，gas消耗为`3`。
+`SUB`指令从堆栈顶部弹出两个元素，然后计算第一个元素减去第二个元素，最后将结果推入堆栈。这个指令的操作码是`0x03`，gas消耗为`3`。
 
 我们将`SUB`指令的实现添加到EVM模拟器：
 
@@ -116,7 +116,7 @@ def sub(self):
         raise Exception('Stack underflow')
     a = self.stack.pop()
     b = self.stack.pop()
-    res = (b - a) % (2**256) # 结果需要模2^256，防止溢出
+    res = (a - b) % (2**256) # 结果需要模2^256，防止溢出
     self.stack.append(res)
 ```
 
@@ -143,10 +143,10 @@ def run(self):
             self.sub()
 ```
 
-现在，我们可以尝试运行一个包含`SUB`指令的字节码：`0x6002600303`（PUSH1 2 PUSH1 3 SUB）。这个字节码将`2`和`3`推入堆栈，然后将它们相减。
+现在，我们可以尝试运行一个包含`SUB`指令的字节码：`0x6002600303`（PUSH1 2 PUSH1 3 SUB）。这个字节码将`2`和`3`推入堆栈，然后将它们相减（`3-2`）。
 
 ```python
-code = b"\x60\x03\x60\x02\x03"
+code = b"\x60\x02\x60\x03\x03"
 evm = EVM(code)
 evm.run()
 print(evm.stack)
@@ -155,7 +155,7 @@ print(evm.stack)
 
 ## DIV (除法)
 
-`DIV`指令从堆栈顶部弹出两个元素，然后将第二个元素除以第一个元素，最后将结果推入堆栈。如果第一个元素（除数）为0，则将0推入堆栈。这个指令的操作码是`0x04`，gas消耗为`5`。
+`DIV`指令从堆栈顶部弹出两个元素，然后将第一个元素除以第二个元素，最后将结果推入堆栈。如果第二个元素（除数）为0，则将0推入堆栈。这个指令的操作码是`0x04`，gas消耗为`5`。
 
 我们将`DIV`指令的实现添加到EVM模拟器：
 
@@ -168,7 +168,7 @@ def div(self):
     if a == 0:
         res = 0
     else:
-        res =  (b // a) % (2**256)
+        res =  (a // b) % (2**256)
     self.stack.append(res)
 ```
 
@@ -197,10 +197,10 @@ def run(self):
             self.div()
 ```
 
-现在，我们可以尝试运行一个包含`DIV`指令的字节码：`0x6002600304`（PUSH1 2 PUSH1 3 DIV）。这个字节码将`2`和`3`推入堆栈，然后将它们相除。
+现在，我们可以尝试运行一个包含`DIV`指令的字节码：`0x6003600604`（PUSH1 3 PUSH1 6 DIV）。这个字节码将`3`和`6`推入堆栈，然后将它们相除（`6//3`）。
 
 ```python
-code = b"\x60\x06\x60\x03\x04"
+code = b"\x60\x03\x60\x06\x04"
 evm = EVM(code)
 evm.run()
 print(evm.stack)
@@ -209,7 +209,7 @@ print(evm.stack)
 
 ## 其他算数指令
 
-1. **SDIV**: 带符号整数的除法指令。与`DIV`类似，这个指令会从堆栈中弹出两个元素，然后将第二个元素除以第一个元素，结果带有符号。如果第一个元素（除数）为0，结果为0。它的操作码是`0x05`，gas消耗为5。要注意，EVM字节码中的负数是用二进制补码（two’s complement）形式，比如`-1`表示为`0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff`，它加一等于0。
+1. **SDIV**: 带符号整数的除法指令。与`DIV`类似，这个指令会从堆栈中弹出两个元素，然后将第一个元素除以第二个元素，结果带有符号。如果第二个元素（除数）为0，结果为0。它的操作码是`0x05`，gas消耗为5。要注意，EVM字节码中的负数是用二进制补码（two’s complement）形式，比如`-1`表示为`0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff`，它加一等于0。
 
     ```python
     def sdiv(self):
@@ -217,11 +217,11 @@ print(evm.stack)
             raise Exception('Stack underflow')
         a = self.stack.pop()
         b = self.stack.pop()
-        res = b//a % (2**256) if a!=0 else 0
+        res = a//b % (2**256) if a!=0 else 0
         self.stack.append(res)
     ```
 
-2. **MOD**: 取模指令。这个指令会从堆栈中弹出两个元素，然后将第二个元素除以第一个元素的余数推入堆栈。如果第一个元素（除数）为0，结果为0。它的操作码是`0x06`，gas消耗为5。
+2. **MOD**: 取模指令。这个指令会从堆栈中弹出两个元素，然后将第一个元素除以第二个元素的余数推入堆栈。如果第二个元素（除数）为0，结果为0。它的操作码是`0x06`，gas消耗为5。
 
     ```python
     def mod(self):
@@ -229,11 +229,11 @@ print(evm.stack)
             raise Exception('Stack underflow')
         a = self.stack.pop()
         b = self.stack.pop()
-        res = b % a if a != 0 else 0
+        res = a % b if a != 0 else 0
         self.stack.append(res)
     ```
 
-3. **SMOD**: 带符号的取模指令。这个指令会从堆栈中弹出两个元素，然后将第二个元素除以第一个元素的余数推入堆栈，结果带有第二个元素的符号。如果第一个元素（除数）为0，结果为0。它的操作码是`0x07`，gas消耗为5。
+3. **SMOD**: 带符号的取模指令。这个指令会从堆栈中弹出两个元素，然后将第一个元素除以第二个元素的余数推入堆栈，结果带符号。如果第一个元素（除数）为0，结果为0。它的操作码是`0x07`，gas消耗为5。
 
     ```python
     def smod(self):
@@ -241,7 +241,7 @@ print(evm.stack)
             raise Exception('Stack underflow')
         a = self.stack.pop()
         b = self.stack.pop()
-        res = b % a if a != 0 else 0
+        res = a % b if a != 0 else 0
         self.stack.append(res)
     ```
 
@@ -271,7 +271,7 @@ print(evm.stack)
         self.stack.append(res)
     ```
 
-6. **EXP**: 指数运算指令。这个指令会从堆栈中弹出两个元素，将第二个元素作为底数，第一个元素作为指数，进行指数运算，然后将结果推入堆栈。它的操作码是`0x0A`，gas消耗为10。
+6. **EXP**: 指数运算指令。这个指令会从堆栈中弹出两个元素，将第一个元素作为底数，第二个元素作为指数，进行指数运算，然后将结果推入堆栈。它的操作码是`0x0A`，gas消耗为10。
 
     ```python
     def exp(self):
@@ -279,7 +279,7 @@ print(evm.stack)
             raise Exception('Stack underflow')
         a = self.stack.pop()
         b = self.stack.pop()
-        res = pow(b, a) % (2**256)
+        res = pow(a, b) % (2**256)
         self.stack.append(res)
     ```
 
