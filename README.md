@@ -86,3 +86,5 @@
 4. [evm-from-scratch](https://github.com/w1nt3r-eth/evm-from-scratch)
 
 5. [evm.codes](https://evm.codes)
+
+6。 [evm-deep-dives-the-path-to-shadowy](https://noxx.substack.com/p/evm-deep-dives-the-path-to-shadowy)
