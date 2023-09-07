@@ -16,7 +16,7 @@
 
 `STATICCALL`指令会创建一个子环境来执行其他合约的部分代码，并返回数据。返回数据可以使用`RETURNDATASIZE`和`RETURNDATACOPY`获取。若执行成功，会将`1`压入堆栈；否则，则压入`0`。如果目标合约没有代码，仍将`1`压入堆栈（视为成功）。
 
-和`CALL`指令的不同，`STATICCALL`不能发送`ETH`，也能改变合约的状态。它不允许子环境执行的代码中包含以下指令：
+和`CALL`指令的不同，`STATICCALL`不能发送`ETH`，也不能改变合约的状态。它不允许子环境执行的代码中包含以下指令：
 
 - `CREATE`, `CREATE2`, `SELFDESTRUCT`
 - `LOG0` - `LOG4`
