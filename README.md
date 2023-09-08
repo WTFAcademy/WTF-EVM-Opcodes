@@ -87,4 +87,4 @@
 
 5. [evm.codes](https://evm.codes)
 
-6。 [evm-deep-dives-the-path-to-shadowy](https://noxx.substack.com/p/evm-deep-dives-the-path-to-shadowy)
+6. [evm-deep-dives-the-path-to-shadowy](https://noxx.substack.com/p/evm-deep-dives-the-path-to-shadowy)

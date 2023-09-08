@@ -112,7 +112,7 @@ def create(self):
 
 ## 测试
 
-1. 部署一个新合约，发送`9` wei，不部署任何代码：
+1. 使用`CREATE`指令部署一个新合约，发送`9` wei，但不部署任何代码：
     ```python
     # CREATE (empty code, 9 wei balance)
     code = b"\x5f\x5f\x60\x09\xf0"
@@ -124,7 +124,7 @@ def create(self):
     # output: {'balance': 9, 'nonce': 0, 'storage': {}, 'code': bytearray(b'')}
     ```
 
-2. 部署一个新合约，代码设置为`ffffffff`:
+2. 使用`CREATE`指令部署一个新合约，并将代码设置为`ffffffff`:
 
     ```python
     # CREATE (with 4x FF)
