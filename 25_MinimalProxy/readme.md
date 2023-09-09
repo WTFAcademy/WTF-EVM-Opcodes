@@ -1,5 +1,5 @@
 ---
-title: 25. 优化最小代理合约
+title: 25. 优化最小代理合约 EIP-7511
 tags:
   - opcode
   - evm

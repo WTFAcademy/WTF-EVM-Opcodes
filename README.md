@@ -64,7 +64,7 @@
 
 **第24讲：Gas指令**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/24_GasOp) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/24_GasOp/readme.md)
 
-**第25讲：优化最小代理合约**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/25_MinimalProxy) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/25_MinimalProxy/readme.md)
+**第25讲：优化最小代理合约 EIP-7511**：[代码](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/25_MinimalProxy) | [文章](https://github.com/WTFAcademy/WTF-Opcodes/blob/main/25_MinimalProxy/readme.md)
 
 ## WTF EVM Opcodes贡献者
 <div align="center">
