@@ -199,7 +199,7 @@ contract Proxy {
 602c8060095f395ff3365f5f375f5f365f73bebebebebebebebebebebebebebebebebebebebe5af43d5f5f3e5f3d91602a57fd5bf3
 ```
 
-总共`53`字节，其中前`9`字节为`initcode`，你可以结合[第21讲](../21_Create/)，思考它为什么长这样：
+总共`53`字节，其中前`9`字节为`initcode`，你可以结合[第21讲](https://github.com/WTFAcademy/WTF-EVM-Opcodes/blob/main/21_Create/readme.md)，思考它为什么长这样：
 
 ```
 602c8060095f395ff3
