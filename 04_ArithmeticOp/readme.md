@@ -165,7 +165,7 @@ def div(self):
         raise Exception('Stack underflow')
     a = self.stack.pop()
     b = self.stack.pop()
-    if a == 0:
+    if b == 0:
         res = 0
     else:
         res =  (a // b) % (2**256)
@@ -217,7 +217,7 @@ print(evm.stack)
             raise Exception('Stack underflow')
         a = self.stack.pop()
         b = self.stack.pop()
-        res = a//b % (2**256) if a!=0 else 0
+        res = a//b % (2**256) if b!=0 else 0
         self.stack.append(res)
     ```
 
@@ -229,7 +229,7 @@ print(evm.stack)
             raise Exception('Stack underflow')
         a = self.stack.pop()
         b = self.stack.pop()
-        res = a % b if a != 0 else 0
+        res = a % b if b != 0 else 0
         self.stack.append(res)
     ```
 
@@ -241,7 +241,7 @@ print(evm.stack)
             raise Exception('Stack underflow')
         a = self.stack.pop()
         b = self.stack.pop()
-        res = a % b if a != 0 else 0
+        res = a % b if b != 0 else 0
         self.stack.append(res)
     ```
 
