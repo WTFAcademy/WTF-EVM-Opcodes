@@ -149,7 +149,6 @@ class EVM:
                 self.push(size)
             elif op == PUSH0: # 如果为PUSH0
                 self.stack.append(0)
-                self.pc += size
             elif op == POP: # 如果为POP
                 self.pop()
 ```
