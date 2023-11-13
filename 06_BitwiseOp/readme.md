@@ -1,22 +1,22 @@
-# WTF Opcodes极简入门: 6. 位级指令
+# WTF Opcodes 极简入门: 6. 位级指令
 
-我最近在重新学以太坊opcodes，也写一个“WTF EVM Opcodes极简入门”，供小白们使用。
+我最近在重新学以太坊 opcodes，也写一个“WTF EVM Opcodes 极简入门”，供小白们使用。
 
 推特：[@0xAA_Science](https://twitter.com/0xAA_Science)
 
 社区：[Discord](https://discord.gg/5akcruXrsk)｜[微信群](https://docs.google.com/forms/d/e/1FAIpQLSe4KGT8Sh6sJ7hedQRuIYirOoZK_85miz3dw7vA1-YjodgJ-A/viewform?usp=sf_link)｜[官网 wtf.academy](https://wtf.academy)
 
-所有代码和教程开源在github: [github.com/WTFAcademy/WTF-Opcodes](https://github.com/WTFAcademy/WTF-Opcodes)
+所有代码和教程开源在 github: [github.com/WTFAcademy/WTF-Opcodes](https://github.com/WTFAcademy/WTF-Opcodes)
 
------
+---
 
-这一讲，我们将介绍EVM中用于位级运算的8个指令，包括`AND`（与），`OR`（或），和`XOR`（异或）。并且，我们将在用Python写的极简版EVM中添加对他们的支持。
+这一讲，我们将介绍 EVM 中用于位级运算的 8 个指令，包括`AND`（与），`OR`（或），和`XOR`（异或）。并且，我们将在用 Python 写的极简版 EVM 中添加对他们的支持。
 
 ## AND (与)
 
-`AND`指令从堆栈中弹出两个元素，对它们进行位与运算，并将结果推入堆栈。操作码是`0x16`，gas消耗为`3`。
+`AND`指令从堆栈中弹出两个元素，对它们进行位与运算，并将结果推入堆栈。操作码是`0x16`，gas 消耗为`3`。
 
-我们将`AND`指令的实现添加到我们的EVM模拟器中：
+我们将`AND`指令的实现添加到我们的 EVM 模拟器中：
 
 ```python
 def and_op(self):
@@ -35,7 +35,7 @@ def run(self):
         op = self.next_instruction()
 
         # ... 其他指令的处理 ...
-        
+
         elif op == AND:  # 处理AND指令
             self.and_op()
 ```
@@ -52,9 +52,9 @@ print(evm.stack)
 
 ## OR (或)
 
-`OR`指令与`AND`指令类似，但执行的是位或运算。操作码是`0x17`，gas消耗为`3`。
+`OR`指令与`AND`指令类似，但执行的是位或运算。操作码是`0x17`，gas 消耗为`3`。
 
-我们将`OR`指令的实现添加到EVM模拟器：
+我们将`OR`指令的实现添加到 EVM 模拟器：
 
 ```python
 def or_op(self):
@@ -90,9 +90,9 @@ print(evm.stack)
 
 ## XOR (异或)
 
-`XOR`指令与`AND`和`OR`指令类似，但执行的是异或运算。操作码是`0x18`，gas消耗为`3`。
+`XOR`指令与`AND`和`OR`指令类似，但执行的是异或运算。操作码是`0x18`，gas 消耗为`3`。
 
-我们将`XOR`指令的实现添加到EVM模拟器：
+我们将`XOR`指令的实现添加到 EVM 模拟器：
 
 ```python
 def xor_op(self):
@@ -128,9 +128,9 @@ print(evm.stack)
 
 ## NOT
 
-`NOT` 指令执行按位非操作，取栈顶元素的补码，然后将结果推回栈顶。它的操作码是`0x19`，gas消耗为`3`。
+`NOT` 指令执行按位非操作，取栈顶元素的补码，然后将结果推回栈顶。它的操作码是`0x19`，gas 消耗为`3`。
 
-我们将`NOT`指令的实现添加到EVM模拟器：
+我们将`NOT`指令的实现添加到 EVM 模拟器：
 
 ```python
 def not_op(self):
@@ -160,9 +160,9 @@ print(evm.stack)
 
 ## SHL
 
-`SHL`指令执行左移位操作，从堆栈中弹出两个元素，将第二个元素左移第一个元素位数，然后将结果推回栈顶。它的操作码是`0x1B`，gas消耗为`3`。
+`SHL`指令执行左移位操作，从堆栈中弹出两个元素，将第二个元素左移第一个元素位数，然后将结果推回栈顶。它的操作码是`0x1B`，gas 消耗为`3`。
 
-我们将`SHL`指令的实现添加到EVM模拟器：
+我们将`SHL`指令的实现添加到 EVM 模拟器：
 
 ```python
 def shl(self):
@@ -192,9 +192,9 @@ print(evm.stack)
 
 ## SHR
 
-`SHR`指令执行右移位操作，从堆栈中弹出两个元素，将第二个元素右移第一个元素位数，然后将结果推回栈顶。它的操作码是`0x1C`，gas消耗为`3`。
+`SHR`指令执行右移位操作，从堆栈中弹出两个元素，将第二个元素右移第一个元素位数，然后将结果推回栈顶。它的操作码是`0x1C`，gas 消耗为`3`。
 
-我们将`SHR`指令的实现添加到EVM模拟器：
+我们将`SHR`指令的实现添加到 EVM 模拟器：
 
 ```python
 def shr(self):
@@ -224,34 +224,32 @@ print(evm.stack)
 
 ## 其他位级指令
 
+1. **BYTE**: `BYTE`指令从堆栈中弹出两个元素（`a`和`b`），将第二个元素（`b`）看作一个`32字节`的数组，不够位数补 0，并返回该字节数组中从高位开始的第`a`个索引的字节，即（`b[31-a]`），并压入堆栈。如果索引`a`大于或等于 32，返回`0`, 否则返回`b[31-a]`。 操作码是`0x1a`，gas 消耗为`3`。
 
-1. **BYTE**: `BYTE`指令从堆栈中弹出两个元素（`a`和`b`），将第二个元素（`b`）看作一个`32字节`的数组，不够位数补0，并返回该字节数组中从高位开始的第`a`个索引的字节，即（`b[31-a]`），并压入堆栈。如果索引`a`大于或等于32，则返回`b`。 操作码是`0x1a`，gas消耗为`3`。
+   ```python
+   def byte_op(self):
+       if len(self.stack) < 2:
+           raise Exception('Stack underflow')
+       position = self.stack.pop()
+       value = self.stack.pop()
+       if position >= 32:
+           res = 0
+       else:
+           res = (value // pow(256, 31 - position)) & 0xFF
+       self.stack.append(res)
+   ```
 
-    ```python
-    def byte_op(self):
-        if len(self.stack) < 2:
-            raise Exception('Stack underflow')
-        position = self.stack.pop()
-        value = self.stack.pop()
-        if position >= 32:
-            res = 0
-        else:
-            res = (value // pow(256, 31 - position)) & 0xFF
-        self.stack.append(res)
-    ```
+2. **SAR**: `SAR`指令执行算术右移位操作，与`SHR`类似，但考虑符号位：如果我们对一个负数进行算术右移，那么在右移的过程中，最左侧（符号位）会被填充`F`以保持数字的负值。它从堆栈中弹出两个元素，将第二个元素以符号位填充的方式右移第一个元素位数，然后将结果推回栈顶。它的操作码是`0x1D`，gas 消耗为`3`。由于 Python 的`>>`操作符已经是算术右移，我们可以直接复用`shr`函数的代码。
 
-
-2. **SAR**: `SAR`指令执行算术右移位操作，与`SHR`类似，但考虑符号位：如果我们对一个负数进行算术右移，那么在右移的过程中，最左侧（符号位）会被填充`F`以保持数字的负值。它从堆栈中弹出两个元素，将第二个元素以符号位填充的方式右移第一个元素位数，然后将结果推回栈顶。它的操作码是`0x1D`，gas消耗为`3`。由于Python的`>>`操作符已经是算术右移，我们可以直接复用`shr`函数的代码。
-
-    ```python
-    def sar(self):
-        if len(self.stack) < 2:
-            raise Exception('Stack underflow')
-        a = self.stack.pop()
-        b = self.stack.pop()
-        self.stack.append(b >> a) # 右移位操作
-    ```
+   ```python
+   def sar(self):
+       if len(self.stack) < 2:
+           raise Exception('Stack underflow')
+       a = self.stack.pop()
+       b = self.stack.pop()
+       self.stack.append(b >> a) # 右移位操作
+   ```
 
 ## 总结
 
-这一讲，我们介绍了EVM中的8个位级指令，并在极简版EVM中添加了对他们的支持。课后习题: 写出`0x6002600160011B1B`对应的指令形式，并给出运行后的堆栈状态。
+这一讲，我们介绍了 EVM 中的 8 个位级指令，并在极简版 EVM 中添加了对他们的支持。课后习题: 写出`0x6002600160011B1B`对应的指令形式，并给出运行后的堆栈状态。
