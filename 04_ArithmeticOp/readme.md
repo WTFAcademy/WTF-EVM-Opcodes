@@ -291,11 +291,13 @@ print(evm.stack)
             raise Exception('Stack underflow')
         b = self.stack.pop()
         x = self.stack.pop()
-        if b < 32: # 如果b>=32，则不需要扩展
-            sign_bit = 1 << (8 * b - 1) # b 字节的最高位（符号位）对应的掩码值，将用来检测 x 的符号位是否为1
-            x = x & ((1 << (8 * b)) - 1)  # 对 x 进行掩码操作，保留 x 的前 b+1 字节的值，其余字节全部置0
+        if b < 31: # 如果b>=31，则不需要扩展
+            sign_bit = 1 << (8 * (b + 1) - 1) # 第 b 字节的最高位（符号位）对应的掩码值，将用来检测 x 的符号位是否为1
+            mask = (1 << (8 * (b + 1))) - 1 # 前 b+1 字节对应的掩码
+            x = x & mask  # 对 x 进行掩码操作，保留 x 的前 b+1 字节的值，其余字节全部置0
             if x & sign_bit:  # 检查 x 的符号位是否为1
-                x = x | ~((1 << (8 * b)) - 1)  # 将 x 的剩余部分全部置1
+                x = x | ~mask  # 将 x 的剩余部分全部置1
+                x = x %（2**256） # 置1后 x 为负数，取余变回非负数
         self.stack.append(x)
     ```
 
