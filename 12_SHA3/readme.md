@@ -27,7 +27,7 @@ pip install pysha3
 下面，让我们在极简EVM中支持SHA3指令：
 
 ```python
-import sha3
+from eth_hash.auto import keccak
 
 SHA3 = 0x20
 
@@ -38,7 +38,7 @@ def sha3(self):
     offset = self.pop()
     size = self.pop()
     data = self.memory[offset:offset+size]  # 从内存中获取数据
-    hash_value = int.from_bytes(sha3.keccak_256(data).digest(), 'big')  # 计算哈希值
+    hash_value = int.from_bytes(keccak(data), 'big')  # 计算哈希值
     self.stack.append(hash_value)  # 将哈希值压入堆栈
 
 def run(self):

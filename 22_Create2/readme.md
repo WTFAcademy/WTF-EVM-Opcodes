@@ -62,9 +62,9 @@ def create2(self):
     creator_account['balance'] -= value
 
     # 生成新的合约地址（参考geth中的方式，使用盐和initcode的hash）
-    init_code_hash = sha3.keccak_256(init_code).digest()
+    init_code_hash = keccak(init_code)
     data_to_hash = b'\xff' + self.txn.thisAddr.encode() + str(salt).encode() + init_code_hash
-    new_contract_address_bytes = sha3.keccak_256(data_to_hash).digest()
+    new_contract_address_bytes = keccak(data_to_hash)
     new_contract_address = '0x' + new_contract_address_bytes[-20:].hex()  # 取后20字节作为地址
 
     # 使用txn构建上下文并执行

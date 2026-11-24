@@ -1,0 +1,3 @@
+eth-hash[pycryptodome]==0.8.0
+rlp==5.0.0
+ipykernel==7.4.0

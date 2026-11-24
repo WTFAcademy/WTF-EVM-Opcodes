@@ -1,5 +1,7 @@
 # WTF EVM Opcodes
 
+运行 notebook 前，使用 Python 3.11+ 并在仓库根目录运行 `python -m pip install -r requirements.txt`。哈希示例使用 `eth_hash.auto.keccak`。
+
 这个教程逐个介绍了EVM的144个Opcodes，让你深入理解EVM。
 
 进度: ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 144/144 (100%)！      

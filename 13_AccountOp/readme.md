@@ -134,7 +134,7 @@ print(evm.memory.hex())
 `EXTCODEHASH` 指令返回某个账户的代码的Keccak256哈希值。它从堆栈中弹出一个地址，然后查询该地址代码的哈希并压入堆栈。它的操作码是`0x3F`，gas为2600（cold address）或100（warm address）。
 
 ```python
-import sha3
+from eth_hash.auto import keccak
 
 def extcodehash(self):
     if len(self.stack) < 1:
@@ -143,7 +143,7 @@ def extcodehash(self):
     # 将stack中的int转换为bytes，然后再转换为十六进制字符串，用于在账户数据库中查询
     addr_str = '0x' + addr_int.to_bytes(20, byteorder='big').hex()
     code = account_db.get(addr_str, {}).get('code', b'')        
-    code_hash = int.from_bytes(sha3.keccak_256(code).digest(), 'big')  # 计算哈希值
+    code_hash = int.from_bytes(keccak(code), 'big')  # 计算哈希值
     self.stack.append(code_hash)
 ```
 

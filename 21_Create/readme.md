@@ -73,7 +73,7 @@ def create(self):
 
     # 生成新的合约地址（参考geth中的方式，使用创建者的地址和nonce）
     creator_nonce = creator_account['nonce']
-    new_contract_address_bytes = sha3.keccak_256(self.txn.thisAddr.encode() + str(creator_nonce).encode()).digest()
+    new_contract_address_bytes = keccak(self.txn.thisAddr.encode() + str(creator_nonce).encode())
     new_contract_address = '0x' + new_contract_address_bytes[-20:].hex()  # 取后20字节作为地址
 
     # 使用txn构建上下文
