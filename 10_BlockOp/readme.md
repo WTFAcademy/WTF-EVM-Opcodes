@@ -43,7 +43,7 @@ def __init__(self, code):
     self.stack = []
     self.memory = bytearray()
     self.current_block = {
-        "blockhash": 0x7527123fc877fe753b3122dc592671b4902ebf2b325dd2c7224a43c0cbeee3ca,
+        "previous_block_hash": 0x7527123fc877fe753b3122dc592671b4902ebf2b325dd2c7224a43c0cbeee3ca,
         "coinbase": 0x388C818CA8B9251b393131C08a736A67ccB19297,
         "timestamp": 1625900000,
         "number": 17871709,
@@ -59,7 +59,7 @@ def __init__(self, code):
 
 下面，我们介绍这些区块信息指令：
 
-1. `BLOCKHASH`: 查询特定区块（最近的256个区块，不包括当前区块）的hash，它的操作码为`0x40`，gas消耗为20。。它从堆栈中弹出一个值作为区块高度（block number），然后将该区块的hash压入堆栈，如果它不属于最近的256个区块，则返回0（你可以使用`NUMBER`指令查询当前区块高度）。但是为了简化，我们在这里只考虑当前块。
+1. `BLOCKHASH`: 查询特定区块（最近的256个区块，不包括当前区块）的hash，它的操作码为`0x40`，gas消耗为20。它从堆栈中弹出一个值作为区块高度（block number），然后将该区块的hash压入堆栈，如果它不属于最近的256个区块，则返回0（你可以使用`NUMBER`指令查询当前区块高度）。示例只保存上一个区块的模拟哈希。查询当前区块或其他未保存的区块时，示例返回 0。
 
     ```python
     def blockhash(self):
@@ -67,10 +67,10 @@ def __init__(self, code):
             raise Exception('Stack underflow')
         number = self.stack.pop()
         # 在真实场景中, 你会需要访问历史的区块hash
-        if number == self.current_block["number"]:
-            self.stack.append(self.current_block["blockhash"])
+        if number == self.current_block["number"] - 1:
+            self.stack.append(self.current_block["previous_block_hash"])
         else:
-            self.stack.append(0)  # 如果不是当前块，返回0
+            self.stack.append(0)  # 模拟中只保存上一个区块的哈希
     ```
 
 

@@ -40,7 +40,6 @@ def run(self):
             self.push(size)
         elif op == PUSH0:
             self.stack.append(0)
-            self.pc += size
         elif op == POP:
             self.pop()
         elif op == ADD: # 处理ADD指令
@@ -85,7 +84,6 @@ def run(self):
             self.push(size)
         elif op == PUSH0:
             self.stack.append(0)
-            self.pc += size
         elif op == POP:
             self.pop()
         elif op == ADD:
@@ -132,7 +130,6 @@ def run(self):
             self.push(size)
         elif op == PUSH0:
             self.stack.append(0)
-            self.pc += size
         elif op == POP:
             self.pop()
         elif op == ADD:
@@ -184,7 +181,6 @@ def run(self):
             self.push(size)
         elif op == PUSH0:
             self.stack.append(0)
-            self.pc += size
         elif op == POP:
             self.pop()
         elif op == ADD:
